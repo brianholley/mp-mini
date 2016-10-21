@@ -1,0 +1,79 @@
+accessControl:
+  salt: cWc08nqNkUsT29gnrmw9Hb3pfpBSXcCi
+api:
+  key: 35937B6FDE394A298FECD2A5322C94C6
+appearance: {}
+events:
+  enabled: true
+  subscriptions:
+  - command: python /home/pi/upload-timelapses.py > /home/pi/print-upload.log
+    event: MovieDone
+    type: system
+feature: {}
+gcodeViewer: {}
+plugins:
+  announcements:
+    channels:
+      _important:
+        read_until: 1460575175
+  cura:
+    cura_engine: /usr/local/bin/cura_engine
+  discovery:
+    publicPort: 80
+    upnpUuid: 211ee697-425f-4b1f-8fa6-546c8920737d
+  softwareupdate:
+    _config_version: 4
+    checks:
+      octoprint:
+        checkout_folder: /home/pi/OctoPrint
+        prerelease: false
+        prerelease_channel: null
+printerParameters: {}
+printerProfiles:
+  default: mp_select_mini
+  defaultProfile: {}
+serial:
+  autoconnect: true
+  baudrate: 250000
+  maxCommunicationTimeouts: {}
+  port: /dev/ttyACM0
+  timeout:
+    connection: 30.0
+server:
+  commands:
+    serverRestartCommand: sudo service octoprint restart
+    systemRestartCommand: sudo shutdown -r now
+  firstRun: false
+  secretKey: 3LwGXzu3rWaDTVNr2uJ3zG6mAFP9D008
+system:
+  actions:
+  - action: shutdown
+    async: true
+    command: sudo shutdown -h now
+    confirm: You are about to shutdown the system.
+    ignore: true
+    name: Shutdown
+  - action: reboot
+    async: true
+    command: sudo shutdown -r now
+    confirm: You are about to reboot the system
+    ignore: true
+    name: Reboot
+  - action: restart
+    async: true
+    command: sudo service octoprint restart
+    confirm: You are about to restart OctoPrint
+    ignore: true
+    name: Restart OctoPrint
+temperature: {}
+webcam:
+  ffmpeg: /usr/bin/avconv
+  snapshot: http://127.0.0.1:8080/?action=snapshot
+  stream: /webcam/?action=stream
+  timelapse:
+    options:
+      fps: 24
+      interval: 4
+      postRoll: 2
+    type: timed
+  watermark: false

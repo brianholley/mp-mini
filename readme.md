@@ -1,0 +1,1 @@
+# Monoprice mini printer configuration
